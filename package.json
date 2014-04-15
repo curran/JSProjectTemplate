@@ -1,13 +1,13 @@
 {
-  "name": "static-file-server",
-  "preferGlobal": true,
+  "name": "JSExampleProject",
   "version": "0.0.1",
   "author": "Curran Kelleher <curran.kelleher@gmail.com>",
-  "description": "A static file server for development use.",
-  "bin": {
-    "server": "./server"
+  "description": "An example project.",
+  "dependencies": {
+    "express": "*"
   },
-  "dependencies" : {
-    "express":  "*"
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-copy": "~0.5.0"
   }
 }
