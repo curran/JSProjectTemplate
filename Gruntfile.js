@@ -1,3 +1,6 @@
+// The Grunt configuration file.
+//
+// Curran Kelleher 4/15/2014
 module.exports = function(grunt) {
   grunt.initConfig({
 
@@ -14,11 +17,20 @@ module.exports = function(grunt) {
           { src: 'bower_components/jasmine/lib/jasmine-core/boot.js', dest: 'lib/jasmine/boot.js' }
         ]
       }
+    },
+    docco: {
+      debug: {
+        src: ['src/*'],
+        options: {
+          output: 'docs/'
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-docco');
 
-  grunt.registerTask('default', ['copy']);
+  grunt.registerTask('default', ['copy', 'docco']);
 
 };
