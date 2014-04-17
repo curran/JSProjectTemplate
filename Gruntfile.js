@@ -18,6 +18,8 @@ module.exports = function(grunt) {
         ]
       }
     },
+
+    // Builds documentation
     docco: {
       debug: {
         src: ['src/*'],
@@ -25,12 +27,16 @@ module.exports = function(grunt) {
           output: 'docs/'
         }
       }
+    },
+    jshint: {
+      all: ['Gruntfile.js', 'src/**/*.js', 'spec/**/*.js']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.registerTask('default', ['copy', 'docco']);
+  grunt.registerTask('default', ['copy', 'docco', 'jshint']);
 
 };
