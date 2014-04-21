@@ -2,41 +2,44 @@
 //
 // Curran Kelleher 4/15/2014
 module.exports = function(grunt) {
+
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
-
-    // Copies files from bower_components to lib
-    copy: {
-      main: {
-        files: [
-          { src: 'bower_components/lodash/dist/lodash.min.js', dest: 'lib/lodash.js' },
-          { src: 'bower_components/requirejs/require.js', dest: 'lib/require.js' },
-
-          { src: 'bower_components/jasmine/lib/jasmine-core/jasmine.js', dest: 'lib/jasmine/jasmine.js' },
-          { src: 'bower_components/jasmine/lib/jasmine-core/jasmine.css', dest: 'lib/jasmine/jasmine.css' },
-          { src: 'bower_components/jasmine/lib/jasmine-core/jasmine-html.js', dest: 'lib/jasmine/jasmine-html.js' },
-          { src: 'bower_components/jasmine/lib/jasmine-core/boot.js', dest: 'lib/jasmine/boot.js' }
-        ]
+    jshint: {
+      all: ['Gruntfile.js', 'src/**/*.js', 'spec/**/*.js']
+    },
+    uglify: {
+      dist: {
+        files: {'dist/myModule.min.js': ['dist/myModule.js']}
       }
     },
-
-    // Builds documentation
+    umd: {
+      all: {
+        src: 'src/myModule.js',
+        dest: 'dist/myModule.js',
+        objectToExport: 'MyModule'
+      }
+    },
     docco: {
       debug: {
-        src: ['src/*'],
+        src: ['src/**/*.js', 'spec/**/*.js'],
         options: {
           output: 'docs/'
         }
       }
     },
-    jshint: {
-      all: ['Gruntfile.js', 'src/**/*.js', 'spec/**/*.js']
+    jasmine: {
+      all: {
+        options: {
+          specs: 'spec/*Spec.js',
+          vendor: ['lib/requirejs/require.js', 'requireConfig.js'],
+          globalAlias: 'myModule'
+        }
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-docco');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  grunt.registerTask('default', ['copy', 'docco', 'jshint']);
-
+  grunt.registerTask('build', ['jshint', 'umd', 'uglify']);
+  grunt.registerTask('default', ['build', 'jasmine', 'docco']);
 };
