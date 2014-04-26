@@ -6,12 +6,10 @@ var gulp = require('gulp'),
     docco = require('gulp-docco'),
     theCode = ['src/**/*.js','tests/**/*.js'];
 
-gulp.task('default', ['lint', 'build', 'test', 'doc']);
+gulp.task('default', ['lint', 'build', 'test', 'docs']);
 
 gulp.task('lint', function() {
-  gulp.src(theCode)
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+  gulp.src(theCode).pipe(jshint()).pipe(jshint.reporter(stylish));
 });
 
 gulp.task('build', function() {
@@ -24,8 +22,6 @@ gulp.task('test', function () {
     .pipe(mocha({ reporter: 'spec' }));
 });
 
-gulp.task('doc', function () {
-  gulp.src(theCode)
-    .pipe(docco())
-    .pipe(gulp.dest('doc'))
+gulp.task('docs', function () {
+  gulp.src(theCode).pipe(docco()).pipe(gulp.dest('docs'))
 });

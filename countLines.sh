@@ -3,7 +3,7 @@
 #
 # The goal is to keep every file under 100 lines of code.
 #
-# By Curran Kelleher 4/15/2014 
+# By Curran Kelleher 4/26/2014 
 
 # $excluded is a regex for paths to exclude from line counting
 excluded="spec\|node_modules\|bower_components\|README\|lib\|docs\|csv\|XLS\|json\|png\|\.git"
@@ -28,5 +28,5 @@ cd src
 countLines
 
 echo Unit tests:
-cd ../spec
+cd ../tests
 countLines

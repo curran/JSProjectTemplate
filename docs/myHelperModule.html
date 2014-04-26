@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>myModule.js</title>
+  <title>myHelperModule.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -15,7 +15,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>myModule.js</h1>
+                  <h1>myHelperModule.js</h1>
               </div>
           </li>
         
@@ -30,10 +30,10 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>define([<span class="hljs-string">'myHelperModule'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(myHelperModule)</span>{</span>
+            <div class="content"><div class='highlight'><pre>define([], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
   <span class="hljs-keyword">return</span> {
-    speak: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-      <span class="hljs-keyword">return</span> myHelperModule.saySomething();
+    saySomething: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello"</span>;
     }
   };
 });</pre></div></div>
