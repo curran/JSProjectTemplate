@@ -4,7 +4,7 @@ define('myHelperModule',[], function(){
     saySomething: function () {
       return "Hello";
     }
-  };
+  }
 });
 
 define('myModule',['myHelperModule'], function(myHelperModule){

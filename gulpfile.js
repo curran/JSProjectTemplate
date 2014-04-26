@@ -1,15 +1,17 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
-    rjs = require('gulp-requirejs');
+    rjs = require('gulp-requirejs'),
+    jshint = require('gulp-jshint'),
+    stylish = require('jshint-stylish');
 
-gulp.task('default', ['build', 'test']);
+gulp.task('default', ['lint', 'build', 'test']);
 
-gulp.task('test', function () {
-  gulp.src(['tests/**/*.js'])
-    .pipe(mocha({
-      reporter: 'spec'
-    }));
+gulp.task('lint', function() {
+  gulp.src('src/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
+
 gulp.task('build', function() {
   rjs({
     baseUrl: 'src',
@@ -17,4 +19,11 @@ gulp.task('build', function() {
     out: 'myModule.js',
   })
   .pipe(gulp.dest('dist'));
+});
+
+gulp.task('test', function () {
+  gulp.src(['tests/**/*.js'])
+    .pipe(mocha({
+      reporter: 'spec'
+    }));
 });
