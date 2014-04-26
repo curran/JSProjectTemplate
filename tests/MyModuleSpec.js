@@ -10,7 +10,7 @@ describe('A suite', function() {
   var myModule;
 
   // Use require.js to fetch the module
-  it("should load the AMD module", function(done) {
+  it('should load the AMD module', function(done) {
     requirejs(['myModule'], function (loadedModule) {
       myModule = loadedModule;
       done();
@@ -18,7 +18,7 @@ describe('A suite', function() {
   });
 
   //run tests that use the myModule object
-  it("can access the AMD module", function() {
-    expect(myModule.speak()).to.equal('Hello')
+  it('can access the AMD module', function() {
+    expect(myModule.speak()).to.equal('Hello');
   });
 });
