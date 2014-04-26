@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     rjs = require('gulp-requirejs'),
+    uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     docco = require('gulp-docco'),
@@ -14,6 +15,7 @@ gulp.task('lint', function() {
 
 gulp.task('build', function() {
   rjs({ baseUrl: 'src', name: 'myModule', out: 'myModule.js', })
+    .pipe(uglify())
     .pipe(gulp.dest('dist'));
 });
 
