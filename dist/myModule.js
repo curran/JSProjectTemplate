@@ -1,24 +1,16 @@
-(function(root, factory) {
-    if(typeof exports === 'object') {
-        module.exports = factory();
+
+define('myHelperModule',[], function(){
+  return {
+    saySomething: function () {
+      return "Hello";
     }
-    else if(typeof define === 'function' && define.amd) {
-        define([], factory);
+  };
+});
+
+define('myModule',['myHelperModule'], function(myHelperModule){
+  return {
+    speak: function () {
+      return myHelperModule.saySomething();
     }
-    else {
-        root['MyModule'] = factory();
-    }
-}(this, function() {
-
-// An example universal module.
-// Curran Kelleher 4/21/2014
-MyModule = {
-  speak: function () {
-    return "hello";
-  }
-};
-
-
-return MyModule;
-
-}));
+  };
+});

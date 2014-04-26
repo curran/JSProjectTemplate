@@ -1,26 +1,41 @@
 JSProjectTemplate
 =================
 
-Boilerplate structure for starting a JavaScript project that uses:
+Boilerplate structure for starting a JavaScript project. Intended to:
 
- * [Require.js](http://requirejs.org/) for dependency management
+ * be as simple as possible
+ * use the best tools
+ * support essential tasks:
+   * dependency management
+   * unit testing
+   * documentation generation
+   * linting
+   * minification
+   * universal module definition
+
+The tools used are:
+
+ * [Gulp](http://gulpjs.com/) for task automation
+ * [Require.js](http://requirejs.org/) for dependency management within the project
+   * Alternatives: [Browserify](http://browserify.org/), [WebPack](http://webpack.github.io/)
  * [Bower](http://bower.io/) for package management
- * [Grunt](http://gruntjs.com/) for task automation
- * [Jasmine](http://jasmine.github.io/) for unit testing
+ * [Mocha](http://visionmedia.github.io/mocha/) for unit testing
+   * via [gulp-mocha](https://www.npmjs.org/package/gulp-mocha)
+   * Alternatives: [Jasmine](http://jasmine.github.io/2.0/introduction.html), [QUnit](https://qunitjs.com/)
+ * [JSHint](http://www.jshint.com/) for linting
  * [Docco](http://jashkenas.github.io/docco/) for documentation generation
-
-When using tools like [Yeoman](http://yeoman.io/) and Grunt, it is easy to let the tools and dependencies get out of control. This project template is designed to be as simple as possible while supporting essential functionality such as dependency management, unit testing, and documentation generation.
+   * Alternatives: [JSDoc](https://github.com/jsdoc3/jsdoc)
+ * [Uglify](https://github.com/mishoo/UglifyJS) for minification
+ * TODO add UMD
 
 Directory structure:
 
+TODO update
  * `index.html` the main page of the application
  * `src` contains JavaScript source files as [AMD modules](http://requirejs.org/)
  * `spec` contains [Jasmine](http://jasmine.github.io/) unit tests
  * `SpecRunner.html` is the Jasmine test runner that runs tests in the `spec` directory
  * `lib` contains JavaScript libraries
- * `Gruntfile.js` is the Grunt configuration
-   * This is responsible for copying libraries from the `bower_modules` directory to `lib` and generating documentation
-   * This approach is a simpler alternative to [grunt-bower-install](https://github.com/stephenplusplus/grunt-bower-install) and [grunt-bower-task](https://github.com/yatskevich/grunt-bower-task) that results in a cleaner `lib` directory (e.g. no subdirectories for single-file libraries).
  * `server.js` is a simple static file server for development use. It is necessary to use a file server because code that uses XMLHttpRequest does not work when using the `file:///` protocol.
  * `package.json` is used by Grunt, and also installs dependencies for `server.js`
  * `LICENSE` The MIT license
@@ -52,13 +67,14 @@ Development workflow:
  * Generate documentation by running `grunt` and navigating to `http://localhost:8000/docs/main.html`
  * Run `./countLines.sh` if you are curious about how many lines of code each file contains, not counting comments and empty lines (my preference is to keep files under 100 lines).
 
-Workflow for adding unit tests:
+## Related Articles
 
- * Add a test suite to the `spec` directory
- * Update `SpecRunner.html` to include the new suite script
- * Re-run the tests
+that informed tool choices:
 
-Workflow for dependency management:
+ * Gulp
+   * [Gulp vs. Grunt: Comparing the Duelling Node.js Workhorses](http://unobfuscated.blogspot.com/2014/01/gulp-vs-grunt-comparing-duelling-nodejs.html)
+   * [And just like that Grunt and RequireJS are out, it’s all about Gulp and Browserify now](http://www.100percentjs.com/just-like-grunt-gulp-browserify-now/)
+   * [Build Wars: Gulp vs Grunt](http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/)
+   * [Inspiration (slides) about why gulp was made](http://slides.com/contra/gulp)
 
- * Use the bower command line tool directly for installing or updating dependencies
- * Update the Gruntfile to copy the files you want from each dependency into the `lib` directory
+
