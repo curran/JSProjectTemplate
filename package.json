@@ -4,6 +4,7 @@
   "author": "Curran Kelleher <curran.kelleher@gmail.com>",
   "description": "An example project.",
   "devDependencies": {
+    "chai": "^1.9.1",
     "express": "^4.0.0",
     "gulp": "^3.6.2",
     "gulp-mocha": "^0.4.1",

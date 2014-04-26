@@ -1,5 +1,5 @@
 var requirejs = require('requirejs'),
-    assert = require("assert");
+    expect = require('chai').expect;
 
 requirejs.config({
   baseUrl: 'dist',
@@ -19,6 +19,6 @@ describe('A suite', function() {
 
   //run tests that use the myModule object
   it("can access the AMD module", function() {
-    assert.equal(myModule.speak(), "Hello");
+    expect(myModule.speak()).to.equal('Hello')
   });
 });
