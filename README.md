@@ -62,5 +62,6 @@ A JavaScript project template. Intended to:
  * [Inspiration (slides) about why gulp was made](http://slides.com/contra/gulp)
  * [Nodejitsu: 9 gulp.js plugins for a great build system](http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/) Inspired use of gulp-rename for producing both minified and non-minified releases.
  * [cujoJS: Consuming modules: Module ids](http://know.cujojs.com/tutorials/modules/consuming-modules-module-ids) Inspired use of packages to avoid naming conflicts.
+ * [Bower GitHub: Allow to include instead of just ignore?](https://github.com/bower/bower/issues/294) Inspired ignore glob used in bower.json.
 
 Curran Kelleher 4/26/2014

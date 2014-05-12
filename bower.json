@@ -8,6 +8,8 @@
   "license": "MIT",
   "homepage": "https://github.com/curran/JSProjectTemplate",
   "ignore": [
+    "**/*",
+    "!dist"
   ],
   "dependencies": {
     "lodash": "~2.4.1",
