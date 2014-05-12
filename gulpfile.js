@@ -6,33 +6,42 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     docco = require('gulp-docco'),
     rename = require('gulp-rename'),
-    theCode = ['src/**/*.js','tests/**/*.js'];
+    theCode = ['src/**/*.js','tests/**/*.js'],
+    moduleName = 'myModule';
 
 gulp.task('default', ['lint', 'build', 'test', 'docs']);
 
 gulp.task('lint', function() {
-  gulp.src(theCode).pipe(jshint()).pipe(jshint.reporter(stylish));
+  gulp.src(theCode)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('build', function() {
+
+  // Bundle all the AMD modules together into a single file.
   rjs({
-    baseUrl: 'src',
     // Use packages so module names to not conflict with other libraries.
     // For example, without using packages, the combined file would include
     // define('myHelperModule'), but using packages, it changes to
     // define('myModule/myHelperModule'), which is less likely to produce a conflict.
     packages: [
       {
-        name: 'myModule',
-        main: 'myModule',
+        name: moduleName,
+        main: moduleName,
         location: '.'
       }
     ],
-    name: 'myModule',
-    out: 'myModule.js'
-  }).pipe(gulp.dest('dist'))
+    name: moduleName,
+    out: moduleName + '.js',
+    baseUrl: 'src',
+  })
+    // Output the non-minified version.
+    .pipe(gulp.dest('dist'))
+
+    // Output the minified version.
     .pipe(uglify())
-    .pipe(rename('myModule-min.js'))
+    .pipe(rename(moduleName + '-min.js'))
     .pipe(gulp.dest('dist'));
 });
 
