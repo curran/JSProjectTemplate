@@ -60,5 +60,6 @@ Development workflow:
  * [And just like that Grunt and RequireJS are out, it’s all about Gulp and Browserify now](http://www.100percentjs.com/just-like-grunt-gulp-browserify-now/)
  * [Build Wars: Gulp vs Grunt](http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt/)
  * [Inspiration (slides) about why gulp was made](http://slides.com/contra/gulp)
+ * [Nodejitsu: 9 gulp.js plugins for a great build system](http://blog.nodejitsu.com/npmawesome-9-gulp-plugins/)
 
 Curran Kelleher 4/26/2014
