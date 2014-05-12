@@ -1,23 +1,24 @@
 JSProjectTemplate
 =================
 
-Boilerplate structure for starting a JavaScript project. Intended to:
+A JavaScript project template. Intended to:
 
  * be as simple as possible
- * use the best tools
+ * use the best and most modern tools
  * support essential tasks:
-   * dependency management
+   * internal dependency management
+   * package management
    * unit testing
    * documentation generation
    * linting
    * minification
 
-The tools used are:
+## Tools
 
  * [Gulp](http://gulpjs.com/) for task automation
  * [Require.js](http://requirejs.org/) for dependency management within the project
    * Alternatives: [Browserify](http://browserify.org/), [WebPack](http://webpack.github.io/)
- * [Bower](http://bower.io/) for package management
+ * [Bower](http://bower.io/) for package management across projects
  * [Mocha](http://visionmedia.github.io/mocha/) for unit testing
    * via [gulp-mocha](https://www.npmjs.org/package/gulp-mocha)
    * Alternatives: [Jasmine](http://jasmine.github.io/2.0/introduction.html), [QUnit](https://qunitjs.com/)
@@ -25,9 +26,8 @@ The tools used are:
  * [Docco](http://jashkenas.github.io/docco/) for documentation generation
    * Alternatives: [JSDoc](https://github.com/jsdoc3/jsdoc)
  * [Uglify](https://github.com/mishoo/UglifyJS) for minification
- * TODO add UMD
 
-Directory structure:
+## Directory Structure
 
  * `src` contains JavaScript source files as [AMD modules](http://requirejs.org/)
  * `dist` contains the build of the library
@@ -46,7 +46,7 @@ Directory structure:
  * `requireConfig.js` the Require.js configuration file
  * `countLines.sh` a shell script that counts lines of code
 
-Development workflow:
+## Workflow
 
  * Start the static file server in the background with the command `node server.js &`
    * If necessary, run `npm install` to install Express, a dependency of `server.js`

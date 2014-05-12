@@ -15,14 +15,24 @@ gulp.task('lint', function() {
 });
 
 gulp.task('build', function() {
-  rjs({ baseUrl: 'src', name: 'myModule', out: 'myModule.js', })
-    .pipe(gulp.dest('dist'))
+  rjs({
+    baseUrl: 'src',
+    packages: [
+      {
+        name: 'myModule',
+        main: 'myModule',
+        location: '.'
+      }
+    ],
+    name: 'myModule',
+    out: 'myModule.js'
+  }).pipe(gulp.dest('dist'))
     .pipe(uglify())
     .pipe(rename('myModule-min.js'))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('test', function () {
+gulp.task('test', ['build'], function () {
   gulp.src(['tests/**/*.js'])
     .pipe(mocha({ reporter: 'spec' }));
 });
