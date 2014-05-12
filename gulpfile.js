@@ -17,6 +17,10 @@ gulp.task('lint', function() {
 gulp.task('build', function() {
   rjs({
     baseUrl: 'src',
+    // Use packages so module names to not conflict with other libraries.
+    // For example, without using packages, the combined file would include
+    // define('myHelperModule'), but using packages, it changes to
+    // define('myModule/myHelperModule'), which is less likely to produce a conflict.
     packages: [
       {
         name: 'myModule',
