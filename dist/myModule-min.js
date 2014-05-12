@@ -1,0 +1,1 @@
+define("myHelperModule",[],function(){return{saySomething:function(){return"Hello"}}}),define("myModule",["myHelperModule"],function(e){return{speak:function(){return e.saySomething()}}});

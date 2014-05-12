@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     docco = require('gulp-docco'),
+    rename = require('gulp-rename'),
     theCode = ['src/**/*.js','tests/**/*.js'];
 
 gulp.task('default', ['lint', 'build', 'test', 'docs']);
@@ -15,7 +16,9 @@ gulp.task('lint', function() {
 
 gulp.task('build', function() {
   rjs({ baseUrl: 'src', name: 'myModule', out: 'myModule.js', })
+    .pipe(gulp.dest('dist'))
     .pipe(uglify())
+    .pipe(rename('myModule-min.js'))
     .pipe(gulp.dest('dist'));
 });
 
