@@ -19,7 +19,7 @@ A JavaScript project template. Intended to:
  * [Require.js](http://requirejs.org/) for dependency management within the project
    * Alternatives: [Browserify](http://browserify.org/), [WebPack](http://webpack.github.io/)
  * [Bower](http://bower.io/) for package management across projects
- * [Mocha](http://visionmedia.github.io/mocha/) for unit testing
+ * [Mocha](http://mochajs.org/) for unit testing
    * via [gulp-mocha](https://www.npmjs.org/package/gulp-mocha)
    * Alternatives: [Jasmine](http://jasmine.github.io/2.0/introduction.html), [QUnit](https://qunitjs.com/)
  * [JSHint](http://www.jshint.com/) for linting
